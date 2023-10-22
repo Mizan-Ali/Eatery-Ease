@@ -1,0 +1,16 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: eatery-ease
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/eatery_ease?useSSL=false&serverTimezone=UTC
+    username: root
+    password: abcd
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
