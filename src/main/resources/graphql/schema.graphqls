@@ -1,0 +1,17 @@
+type Menu {
+    id: ID!
+    dishName: String!
+    description: String
+    price: Int!
+    available: Boolean!
+}
+
+type Query {
+    getMenu(id: ID!): Menu
+    getAllMenus: [Menu]
+}
+
+type Mutation {
+    addMenu(dishName: String!, description: String, price: Int!, available: Boolean!): Menu
+    updateMenu(id: ID!, dishName: String, description: String, price: Int, available: Boolean): Menu
+}

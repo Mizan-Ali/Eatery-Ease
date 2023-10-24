@@ -23,7 +23,7 @@ CREATE TABLE `dining_table` (
 
 
 CREATE TABLE `orders` (
-  `id` int NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `menu_id` int NOT NULL,
   `table_id` int NOT NULL,
   `is_paid` tinyint NOT NULL DEFAULT '0',

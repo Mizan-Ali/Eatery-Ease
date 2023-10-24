@@ -1,12 +1,15 @@
 package com.eateryease.diningTable;
 
+import com.eateryease.orders.Orders;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Builder
@@ -18,7 +21,7 @@ public class DiningTable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "table_name", nullable = false, length = 256, unique = true)
     private String tableName;
@@ -35,9 +38,14 @@ public class DiningTable {
     @Column(name = "reserve_duration")
     private Integer reserveDuration;
 
+    @OneToMany(mappedBy = "diningTable")
+    @JsonIgnore
+    private List<Orders> orders;
+
+
     // Getters and setters
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
